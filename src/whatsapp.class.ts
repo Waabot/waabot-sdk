@@ -2,7 +2,7 @@ import axios, { Axios, InternalAxiosRequestConfig } from "axios";
 import { axiosInstance, sendRequest } from "./packages/http";
 import { WaabotError } from "./packages/error";
 
-class Whatsapp {
+export class Waabot {
     /** */
     private accessToken: string;
     /** */
@@ -54,7 +54,7 @@ class Whatsapp {
             }
 
             const { data } = method === 'post' ? await this.waabotHttp.post(path, requestData) : await this.waabotHttp.get(path, { params: requestData })
-            return data;
+            return data?.data || data;
         } catch (error: any) {
             if (axios.isAxiosError(error)) {
                 throw new Error(error.response?.data?.message)
@@ -261,4 +261,3 @@ class Whatsapp {
 
 
 }
-export default Whatsapp;

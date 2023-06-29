@@ -1,3 +1,1 @@
-import Whatsapp from "./whatsapp.class";
-
-export default Whatsapp;
+export { Waabot } from "./whatsapp.class";

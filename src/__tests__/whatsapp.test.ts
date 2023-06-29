@@ -1,13 +1,13 @@
 import config from "../constant/testconstant";
-import Whatsapp from "../whatsapp.class"
+import { Waabot } from "../whatsapp.class"
 
-const whatsapp = new Whatsapp(config.accessToken, config.refreshToken)
+const whatsapp = new Waabot(config.accessToken, config.refreshToken)
 const chatId = "2349048988056";
 const chat = { chatId, fullname: "Bankole Emmanuel", displayName: "Bankole Emmanuel", organization: "Organization", phoneNumber: chatId };
 const message = "This messages, how messages sent!";
 
 test('Get Whatsapp Instances', async () => {
-  expect((await whatsapp.getInstances()).status).toBe(true)
+  expect((await whatsapp.getInstances())).not.toBeNull()
 });
 
 
@@ -22,7 +22,7 @@ test('Setup Whatsapp', async () => {
 
 test('Get Whatsapp Info', async () => {
   // console.log(await whatsapp.getInstanceInfo())
-  expect((await whatsapp.getInstanceInfo()).status).toBe(true)
+  expect((await whatsapp.getInstanceInfo())).not.toBeNull()
 });
 
 // test('Initialize Whatsapp', async () => {
@@ -34,7 +34,7 @@ test('Get Whatsapp Info', async () => {
 
 test('Send Text Message', async () => {
   // console.log((await whatsapp.sendTextMessages({ chatId, message })))
-  expect((await whatsapp.sendTextMessages({ chatId, message })).status).toBe(true)
+  expect((await whatsapp.sendTextMessages({ chatId, message }))).not.toBeNull()
 });
 
 
@@ -60,7 +60,7 @@ test('Send List Message', async () => {
       ],
       "listType": 0
     }
-  })).status).toBe(true)
+  }))).not.toBeNull()
 });
 
 test('Send Contact Message', async () => {
@@ -71,5 +71,5 @@ test('Send Contact Message', async () => {
       organization: chat.organization,
       phoneNumber: chat.phoneNumber,
     }
-  })).status).toBe(true)
+  }))).not.toBeNull()
 });

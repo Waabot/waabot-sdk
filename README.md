@@ -3,6 +3,7 @@
 ### Create Credentials
 Goto https://waabot.com/ and create an account, use the credentials to create a session.
 
+
 ### How to Create session
 
 ```
@@ -18,21 +19,20 @@ Save the session to .env, and use the response `accessToken, refreshToken` respe
 ## How to Initialize the Whatsapp
 
 ```
-const whatsapp = new Whatsapp(config.accessToken, config.refreshToken);
+const { Waabot } = require("wasms-sdk")
+const whatsapp = new Waabot(config.accessToken, config.refreshToken);
 const chatId = "15417543010";
 const chat = { chatId, fullname: "Chat Name", displayName: "Display Name", organization: "Organization", phoneNumber: chatId };
 const message = "This messages, how messages sent!";
 ```
 ## How to create a whatsapp instance
 ```
-await whatsapp.createNewWhatsapp()
+const response = await whatsapp.createNewWhatsapp()
+
 ```
 Response
 ```
 {
-    "status": true,
-    "message": "Whatsapp created successfully!",
-    "data": {
         "settings": {
             "bot_name": "WhatsappClient (bot_number)",
             "status": "CONNECTED",
@@ -69,7 +69,29 @@ Response
         "updatedAt": "2021-12-20T14:02:07.472Z",
         "__v": 0
     }
+```
+```
+
+// set session_id and access_token you want to use for the rest of the request.
+await whatsapp.setupWhatsapp(response.session_id, response.access_token)
+const scanned = await whatsapp.initializeWhatsapp() 
+/*
+{
+    "session_id": "464c3391-dee7-4206-ad13-d75ffb7498a0",
+    "webhook": {
+        "enabled": true,
+        "webhookUrl": "valid_url"
+    },
+    "qrcode": {
+        "base64": "",
+        "url": "https://api.waabot.com/api/v1/whatsapp/scan?session_id=464c3391-dee7-4206-ad13-d75ffb7498a0&access_token=0b375583-b9c7-4a86-b95c-7e5064326778"
+    }
 }
+*
+
+// to get the qrcode in base64
+const base64Qr = await whatsapp.scanWhatsappToBase64();
+
 ```
 ## How to configue the whatsapp instance.
 ```
