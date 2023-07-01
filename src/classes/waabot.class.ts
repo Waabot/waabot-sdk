@@ -9,7 +9,7 @@ export class Waabot {
     public intent: ChatBot = new ChatBot(this);
     public whatsapp: Whatsapp = new Whatsapp(this);
     public settings: Settings = new Settings(this);
-    
+
 
     /** */
     public accessToken: string;
@@ -61,7 +61,8 @@ export class Waabot {
                 // console.log(requestData.session_id, requestData.access_token, "HELLO!")
             }
 
-            const { data } = method === 'post' ? await this.waabotHttp.post(path, requestData) : await this.waabotHttp.get(path, { params: requestData })
+            // const { data } = method === 'post' ? await this.waabotHttp.post(path, requestData) : await this.waabotHttp.get(path, { params: requestData })
+            const { data } = await this.waabotHttp.request({ data: requestData, method, url: path })
             return data?.data || data;
         } catch (error: any) {
             if (axios.isAxiosError(error)) {
