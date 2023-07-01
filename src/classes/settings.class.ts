@@ -15,6 +15,12 @@ export class Settings {
         return await this.waabot.sendRequest('/whatsapp/updateGeneral', 'put', config)
     }
 
+
+    public async setWebhookUrl(webhookUrl: string) {
+        return await this.waabot.sendRequest('/whatsapp/setWebhook', 'put', { webhook_url: webhookUrl })
+    }
+
+
     public async turnOffChatbot() {
         const config: WhatsappClientInput["settings"]["actions"] = { reply_msgs: false };
         return await this.waabot.sendRequest('/whatsapp/updateActions', 'put', config)

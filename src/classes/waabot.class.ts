@@ -75,7 +75,7 @@ export class Waabot {
      * Init Whatsapp
      * @param config 
      */
-    public setWhatsapp(
+    public setConfig(
         config: {
             session_id: string;
             access_token: string;

@@ -20,3 +20,8 @@ test('Turn On Whatsapp', async () => {
 test('Turn on Group Replies', async () => {
     const response = await waabot.settings.turnOnGroupReplies();
 });
+
+
+test('Set Webhook Url', async () => {
+    const response = await waabot.settings.setWebhookUrl("https://webhook.site/ca0fa48b-aa9f-4614-8e11-fd916b4a8fad");
+});

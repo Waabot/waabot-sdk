@@ -9,6 +9,7 @@ To get started with the SDK, follow these steps to create your credentials:
 1. Go to [waabot.com](https://waabot.com/) using your preferred web browser and create an account.
 2. Use the credentials obtained during the account creation process to create a session.
 
+
 ## Creating a Session
 To create a session for API access, follow these steps:
 
@@ -49,16 +50,16 @@ const message = "This is the message to be sent!";
 To create a WhatsApp instance, use the following code:
 
 ```javascript
-const response = await waabot.whatsapp.createNew();
+const response = await waabot.whatsapp.createNew("preferedName");
 ```
 
 The response will contain the settings and details of the newly created instance.
 
 ## Configuring the WhatsApp Instance
-To configure the WhatsApp instance, use the following code:
+To configure the Waabot instance, use the following code:
 
 ```javascript
-waabot.whatsapp.setWhatsapp({ session_id: "464c3391-dee7-4206-ad13-d75ffb7498a0", access_token: "0b375583-b9c7-4a86-b95c-7e5064326778" });
+waabot.setConfig({ session_id: "464c3391-dee7-4206-ad13-d75ffb7498a0", access_token: "0b375583-b9c7-4a86-b95c-7e5064326778" });
 ```
 
 Replace the `session_id` and `access_token` with the appropriate values you want to use for the rest of the requests.
@@ -181,6 +182,14 @@ To turn on group replies, use the following code:
 
 ```javascript
 const response = await waabot.settings.turnOnGroupReplies();
+```
+
+### To Listen to Message events
+
+To listen to message events, use the following code.
+
+```javascript
+const response = await waabot.settings.setWebhookUrl("https://webhook.site/ca0fa48b-aa9f-4614-8e11-fd916b4a8fad");
 ```
 
 These examples demonstrate how to interact with the ChatBot and various settings using the WAABOT-SDK. Please refer to the official documentation or reach out to the WAABOT support team for further details and additional functionalities.

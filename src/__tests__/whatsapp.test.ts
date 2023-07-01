@@ -17,7 +17,7 @@ test('Create New Whatsapp', async () => {
 
 
 test('Setup Whatsapp', async () => {
-  expect(waabot.setWhatsapp(whatsappConfig)).toBe(true)
+  expect(waabot.setConfig(whatsappConfig)).toBe(true)
 });
 
 
