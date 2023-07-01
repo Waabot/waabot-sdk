@@ -1,1 +1,1 @@
-export { Waabot } from "./whatsapp.class";
+export { Waabot } from "./classes/whatsapp.class";
