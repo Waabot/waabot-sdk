@@ -76,7 +76,9 @@ export class Whatsapp {
             session_id?: string;
             access_token?: string;
             format: "base64" | "base64text";
-        }) {
+        } = {
+                format: "base64text"
+            }) {
         config.format = "base64text"
         config.session_id = this.waabot.session_id;
         config.access_token = this.waabot.access_token;

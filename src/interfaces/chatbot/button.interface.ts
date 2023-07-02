@@ -1,5 +1,5 @@
 export interface ButtonDocument {
-    type: string;
+    type: "replyButton" | "urlButton" | "callButton";
     title: string;
-    payload?: string;
+    payload?: string;// phone number for callButton, urlButton for url and text for replyButton
 }

@@ -192,6 +192,53 @@ To listen to message events, use the following code.
 const response = await waabot.settings.setWebhookUrl("https://webhook.site/ca0fa48b-aa9f-4614-8e11-fd916b4a8fad");
 ```
 
+## Action Types
+
+```
+// Buttons
+action: {
+    send_button: [
+        {
+            "type": "replyButton",
+            "title": "Reply this text (REPLY)"
+        },
+        {
+            "type": "urlButton",
+            "title": "Click me (URL)",
+            "payload": "https://google.com"
+        },
+        {
+            "type": "callButton",
+            "title": "Click to call (CALL)",
+            "payload": "918788889688"
+        }
+    ]
+}
+
+// Locations
+"send_location": {
+    "lat": "51.5074",
+    "lng": "0.1278",
+    "loc": "London!"
+},
+
+// send contact
+"send_contact": {
+    "name": "Banky",
+    "number": "2348123343433"
+},
+
+// and the rest
+"send_file": "attachment_id",
+"send_photo": "attachment_id",
+"send_notification": {
+    "email": "mrbarnk1@gmail.com",
+    "whatsapp_number": "2348179803743"
+},
+"add_to_group": "61b19e128f12f271545eec7c",
+"start_survey": "survey_id"
+```
+
 These examples demonstrate how to interact with the ChatBot and various settings using the WAABOT-SDK. Please refer to the official documentation or reach out to the WAABOT support team for further details and additional functionalities.
 
 Please note that the provided code snippets are examples and may require modifications based on your specific implementation and requirements.
