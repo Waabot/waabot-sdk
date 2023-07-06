@@ -41,7 +41,7 @@ interface BroadcastActionDocument {
 export interface BroadcastDocument {
     _id?: string;
     client_id?: WhatsappClientDocument["_id"];
-    send_type: SendTypeEnum;
+    send_type: 'group' | 'individual';
     to: string;
     // location?: BroadcastLocationDocument;
     message: BroadcastMessageDocument;

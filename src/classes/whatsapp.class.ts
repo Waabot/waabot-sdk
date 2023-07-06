@@ -28,7 +28,10 @@ export class Whatsapp {
         config.session_id = this.waabot.session_id;
         config.access_token = this.waabot.access_token;
         const response = await this.waabot.sendRequest('/whatsapp/instance', 'get', config)
-        return response?.instance_data?.phone_connected;
+        if (response?.instance_data?.phone_connected) {
+            return true;
+        }
+        return false;
     }
 
     /**
