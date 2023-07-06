@@ -1,5 +1,10 @@
 import { waabot } from "./whatsapp.test"
 let createdAutoReply: any;
+
+test("Get Intents", async () => {
+    createdAutoReply = await waabot.intent.getAll()
+})
+
 test("Create Auto Reply", async () => {
     createdAutoReply = await waabot.intent.add({
         title: "test auto reply title",

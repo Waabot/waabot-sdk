@@ -3,12 +3,18 @@ import { axiosInstance } from "../packages/http";
 import { ChatBot } from "./chatbot.class";
 import { Whatsapp } from "./whatsapp.class";
 import { Settings } from "./settings.class";
+import { Broadcast } from "./broadcast.class";
+import { ContactGroup } from "./contact-group.class";
+import { Contact } from "./contact.class";
 
 export class Waabot {
 
     public intent: ChatBot = new ChatBot(this);
     public whatsapp: Whatsapp = new Whatsapp(this);
     public settings: Settings = new Settings(this);
+    public broadcast: Broadcast = new Broadcast(this);
+    public contact: Contact = new Contact(this);
+    public contactGroup: ContactGroup = new ContactGroup(this);
 
 
     /** */
@@ -62,7 +68,7 @@ export class Waabot {
             }
 
             // const { data } = method === 'post' ? await this.waabotHttp.post(path, requestData) : await this.waabotHttp.get(path, { params: requestData })
-            const { data } = await this.waabotHttp.request({ data: requestData, method, url: path })
+            const { data } = await this.waabotHttp.request({ data: requestData, method, url: path, params: requestData })
             return data?.data || data;
         } catch (error: any) {
             if (axios.isAxiosError(error)) {

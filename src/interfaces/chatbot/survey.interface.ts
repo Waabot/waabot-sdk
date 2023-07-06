@@ -27,7 +27,7 @@ export interface SurveyDocument extends IntentDocument {
     // keyword: string;
     question: string;
     // survey_id: ;
-    client_id: WhatsappClientDocument["_id"];
+    client_id?: WhatsappClientDocument["_id"];
     action: SurveyActionDocument;
     sort_id: number;
 }

@@ -17,10 +17,25 @@ export class Whatsapp {
     }
 
     /**
-     * Create a new whatsapp
+     * Get Whatsapp Info
      * @returns 
      */
-    public async getOne() {
+    public async isConnected() {
+        const config = {
+            session_id: "",
+            access_token: "",
+        };
+        config.session_id = this.waabot.session_id;
+        config.access_token = this.waabot.access_token;
+        const response = await this.waabot.sendRequest('/whatsapp/instance', 'get', config)
+        return response?.instance_data?.phone_connected;
+    }
+
+    /**
+     * Get Whatsapp Info
+     * @returns 
+     */
+    public async getInfo() {
         const config = {
             session_id: "",
             access_token: "",
@@ -122,9 +137,10 @@ export class Whatsapp {
         config: {
             session_id?: string;
             access_token?: string;
-            type: string;
+            type: string | "image" | "video" | "gif" | "video";
             mimetype: string;
             caption: string;
+            url: string;
         }) {
         config.session_id = this.waabot.session_id;
         config.access_token = this.waabot.access_token;
