@@ -72,7 +72,7 @@ export class Waabot {
             return data?.data || data;
         } catch (error: any) {
             if (axios.isAxiosError(error)) {
-                throw new Error(error.response?.data?.error || error.response?.data?.message)
+                throw new Error(error.response?.data?.message || error.response?.data?.error || error.response?.data?.message)
             }
             throw error;
         }
