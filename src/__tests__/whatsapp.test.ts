@@ -2,7 +2,6 @@ import config from "../constant/testconstant";
 import { Waabot } from "../classes/index.class"
 require('dotenv').config()
 
-console.log(config.accessToken, config.refreshToken)
 
 export const waabot = new Waabot(config.accessToken, config.refreshToken)
 

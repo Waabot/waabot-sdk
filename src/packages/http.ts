@@ -6,7 +6,7 @@ import { ENDPOINT } from '../constant/default';
  */
 export const axiosInstance = axios.create({
     baseURL: ENDPOINT,
-    timeout: 2000,
+    timeout: 4000,
     headers: {}
 })
 // axiosInstance.interceptors.response.use((res: AxiosResponse<any, any>) => {

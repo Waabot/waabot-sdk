@@ -28,7 +28,8 @@ export class Whatsapp {
         config.session_id = this.waabot.session_id;
         config.access_token = this.waabot.access_token;
         const response = await this.waabot.sendRequest('/whatsapp/instance', 'get', config)
-        if (response?.instance_data?.phone_connected) {
+        // console.log(response?.settings)
+        if (response?.settings?.status === 'ONLINE') {
             return true;
         }
         return false;
