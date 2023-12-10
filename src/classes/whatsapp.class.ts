@@ -105,6 +105,9 @@ export class Whatsapp {
     }
 
 
+    public async logout() {
+        return await this.waabot.sendRequest(`/whatsapp/logout`, 'get')
+    }
     /**
      * Get Instances
      * @returns 
