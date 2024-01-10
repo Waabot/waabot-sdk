@@ -106,7 +106,11 @@ export class Whatsapp {
 
 
     public async logout() {
-        return await this.waabot.sendRequest(`/whatsapp/logout`, 'get')
+        const isConnected = await this.isConnected();
+        await this.waabot.sendRequest(`/whatsapp/logout`, 'get')
+        if (isConnected)
+            return { status: true, loggout: true }
+        return { status: false, loggout: true }
     }
     /**
      * Get Instances
